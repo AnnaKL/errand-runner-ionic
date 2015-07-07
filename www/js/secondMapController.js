@@ -78,7 +78,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
     var infoWindow = new google.maps.InfoWindow();
     $scope.createMarker = function(info) {
       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(info.lat, info.lon),
+        position: new google.maps.LatLng(info.pick_up_lat, info.pick_up_lon),
         map: $scope.map,
         icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/pink.png',
         animation: google.maps.Animation.DROP,
@@ -122,6 +122,6 @@ $scope.$on( "$ionicView.enter", function( scopes, states ) {
   });
 
 
-
+reload = function() {window.location.reload(true)};
 
 });

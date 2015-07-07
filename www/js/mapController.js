@@ -80,7 +80,7 @@ $scope.tasks = []
   $scope.createMarker = function(info) {
     // console.log(info)
       var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(info.lat, info.lon),
+      position: new google.maps.LatLng(info.pick_up_lat, info.pick_up_lon),
       map: $scope.map,
       icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/pink.png',
       animation: google.maps.Animation.DROP,
@@ -89,7 +89,7 @@ $scope.tasks = []
 
     marker.content = '<div class="infoWindowContent">' + info.description + '</div>';
      marker.id = info.id;
-    marker.accept = '<a onclick="reload()" href="#/tab/task/' + info.id +' ">Show more information</a>'
+    marker.accept = '<a  href="#/tab/task/' + info.id +' ">Show more information</a>'
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content + marker.accept + marker.id);
       infoWindow.open($scope.map, marker);
@@ -119,7 +119,7 @@ $scope.placeMarkers = function(){
 google.maps.event.addDomListener(window, 'load', $scope.initialize);
  });
 
-reload = function() {window.location.reload(true)};
+// reload = function() {window.location.reload(true)};
 
 });
 
