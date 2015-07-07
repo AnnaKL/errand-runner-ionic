@@ -57,25 +57,25 @@ appCtrl.controller('ChatDetailCtrl', function($scope, $stateParams, Chats, $http
 
   $scope.userChat = {}
 
-  $scope.newMessage = function() {
-    // console.log($scope.userChat)
-    var data = JSON.stringify({
-      "chat": $scope.userChat
-    })
-    console.log(data)
-    var res = $http({
-      method: 'POST',
-      url: 'http://localhost:3000/chats',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: data
-    }).then(
-      function() {
-        console.log('posted');
-      },
-      function() {
-        console.log('errors');
-      });
-  }
+  // $scope.newMessage = function() {
+  //   // console.log($scope.userChat)
+  //   var data = JSON.stringify({
+  //     "chat": $scope.userChat
+  //   })
+  //   console.log(data)
+  //   var res = $http({
+  //     method: 'POST',
+  //     url: 'http://localhost:3000/chats',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     data: data
+  //   }).then(
+  //     function() {
+  //       console.log('posted');
+  //     },
+  //     function() {
+  //       console.log('errors');
+  //     });
+  //}
 })
