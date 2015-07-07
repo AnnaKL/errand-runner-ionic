@@ -109,8 +109,8 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
         $scope.pickupMarker($scope.task);
         $scope.deliveryMarker($scope.task);
         $scope.directions = {
-          origin: $scope.task.pick_up_address,
-          destination: $scope.task.drop_off_address,
+          origin: new google.maps.LatLng($scope.task.pick_up_lat, $scope.task.pick_up_lon),
+          destination: new google.maps.LatLng($scope.task.drop_off_lat, $scope.task.drop_off_lon),
           showList: false
         }
         // }
@@ -131,7 +131,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
         var request = {
           origin: $scope.directions.origin,
           destination: $scope.directions.destination,
-          travelMode: google.maps.DirectionsTravelMode.DRIVING
+          travelMode: google.maps.DirectionsTravelMode.WALKING
         };
         directionsService.route(request, function (response, status) {
           if (status === google.maps.DirectionsStatus.OK) {
