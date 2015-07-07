@@ -13,7 +13,7 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state) {
       console.log(data)
       var res = $http({
         method: 'POST',
-        url: 'http://localhost:3000/users',
+        url: 'http://evening-plains-3275.herokuapp.com/users',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -25,8 +25,8 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state) {
           window.localStorage['user_id'] = (res.data.user.id)
           $state.go('tab.map')
         },
-        function() {
-          console.log(':(');
+        function(err) {
+          alert(err);
         });
 
     }
