@@ -42,7 +42,7 @@ $scope.taskData = {}
     console.log(window.localStorage['auth_token'])
     var res = $http({
       method: 'POST',
-      url: 'http://localhost:3000/users/' + window.localStorage['user_id'] + '/tasks',
+      url: 'https://evening-plains-3275.herokuapp.com/users/' + window.localStorage['user_id'] + '/tasks',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': window.localStorage['auth_token']
