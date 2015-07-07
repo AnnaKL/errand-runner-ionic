@@ -16,12 +16,12 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
           $scope.tasks.push(data.tasks[i])
         }
         console.log($scope.tasks)
-        $scope.placeMarkers()
         console.log($stateParams.taskId)
         for (var i = 0; i < $scope.tasks.length; i++) {
           if ($scope.tasks[i].id == $stateParams.taskId) {
             $scope.task = $scope.tasks[i] }
         }
+         $scope.placeMarkers()
         console.log($scope.task)
       }).
       error(function(data, status, headers, config) {})
@@ -76,28 +76,43 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
     $scope.map = map;
     $scope.markers = [];
     var infoWindow = new google.maps.InfoWindow();
-    $scope.createMarker = function(info) {
+    $scope.pickupMarker = function(info) {
       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(info.lat, info.lon),
+        position: new google.maps.LatLng(info.pick_up_lat, info.pick_up_lon),
         map: $scope.map,
         icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/pink.png',
         animation: google.maps.Animation.DROP,
-        title: info.title
+        title: info.title,
+        pickup: info.pick_up_address
       });
-
-      marker.content = '<div class="infoWindowContent">' + info.description + '</div>';
-      marker.accept = '<a href="#/tab/task" ng-click="initialize()">Show more information</a>'
       google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content + marker.accept);
+        infoWindow.setContent('<h2>' + marker.title + '</h2>' +  marker.pickup);
         infoWindow.open($scope.map, marker);
       });
       $scope.markers.push(marker);
     }
 
+        $scope.deliveryMarker = function(info) {
+      var marker2 = new google.maps.Marker({
+        position: new google.maps.LatLng(info.drop_off_lat, info.drop_off_lon),
+        map: $scope.map,
+        icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/pink.png',
+        animation: google.maps.Animation.DROP,
+        title: info.title,
+        delivery: info.drop_off_address
+      });
+      google.maps.event.addListener(marker2, 'click', function() {
+        infoWindow.setContent('<h2>' + marker2.title + '</h2><br>' + marker2.delivery);
+        infoWindow.open($scope.map, marker2);
+      });
+      $scope.markers.push(marker2);
+    }
+
     $scope.placeMarkers = function() {
-      for (i = 0; i < $scope.tasks.length; i++) {
-        $scope.createMarker($scope.tasks[i]);
-      }
+      // for (i = 0; i < $scope.tasks.length; i++) {
+        $scope.pickupMarker($scope.task);
+        $scope.deliveryMarker($scope.task);
+      // }
     }
 
 
@@ -122,6 +137,6 @@ $scope.$on( "$ionicView.enter", function( scopes, states ) {
   });
 
 
-
+reload = function() {window.location.reload(true)};
 
 });
