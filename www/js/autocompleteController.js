@@ -11,21 +11,51 @@ var componentForm = {
 
 $scope.taskData = {}
 
-  $scope.codeAddress = function() {
-    var stnumber = document.getElementById('street_number').value
-    var route = document.getElementById('route').value
-    var city = document.getElementById('locality').value
-    var postcode = document.getElementById('postal_code').value
-    var address = stnumber + ' ' + route + ' ' + city + ' ' + postcode
+
+  $scope.pickupcodeAddress = function() {
+    // var stnumber = document.getElementById('street_number').value
+    // var route = document.getElementById('route').value
+    // var city = document.getElementById('locality').value
+    // var postcode = document.getElementById('postal_code').value
+    // var address = stnumber + ' ' + route + ' ' + city + ' ' + postcode
+    // var address = document.getElementById('locationField').value
+    // var address2 = []
+    // for (var i = 0; i < address.length; i++) {
+    //   address2.push(address[i].long_name)
+
+    // }
+    // console.log(address2)
+    $scope.taskData.pick_up_address = document.getElementById('autocomplete').value
+    console.log($scope.taskData.pick_up_address)
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({
-      'address': address
+      'address': $scope.taskData.pick_up_address
     }, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         var latitude = results[0].geometry.location.lat();
         var longitude = results[0].geometry.location.lng();
-        $scope.taskData.lat = latitude;
-        $scope.taskData.lon = longitude;
+        $scope.taskData.pick_up_lat = latitude;
+        $scope.taskData.pick_up_lon = longitude;
+        console.log($scope.taskData)
+
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  };
+
+  $scope.deliverycodeAddress = function() {
+    $scope.taskData.drop_off_address = document.getElementById('autocomplete2').value
+    console.log($scope.taskData.drop_off_address)
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({
+      'address': $scope.taskData.drop_off_address
+    }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var latitude = results[0].geometry.location.lat();
+        var longitude = results[0].geometry.location.lng();
+        $scope.taskData.drop_off_lat = latitude;
+        $scope.taskData.drop_off_lon = longitude;
         console.log($scope.taskData)
 
       } else {
@@ -42,7 +72,7 @@ $scope.taskData = {}
     console.log(window.localStorage['auth_token'])
     var res = $http({
       method: 'POST',
-      url: 'http://localhost:3000/users/' + window.localStorage['user_id'] + '/tasks',
+      url: 'https://evening-plains-3275.herokuapp.com/users/' + window.localStorage['user_id'] + '/tasks',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': window.localStorage['auth_token']
@@ -64,11 +94,21 @@ $scope.taskData = {}
         types: ['geocode']
       })
      google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      fillInAddress();
+      // fillInAddress();
+    })
+
+     autocomplete2 = new google.maps.places.Autocomplete(
+      /** @type {HTMLInputElement} */
+      (document.getElementById('autocomplete2')), {
+        types: ['geocode']
+      })
+     google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      // fillInAddress();
     })
   })
 
   $scope.geolocate = function() {
+    console.log("geolocate")
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var geolocation = new google.maps.LatLng(

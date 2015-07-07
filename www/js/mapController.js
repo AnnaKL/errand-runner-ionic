@@ -15,7 +15,7 @@ $scope.tasks = []
   ionic.Platform.ready(function() {
 
     $scope.updateMap = function(){
-      $http.get('http://localhost:3000/tasks', {
+      $http.get('https://evening-plains-3275.herokuapp.com/tasks', {
       headers: {
                  'Authorization': window.localStorage['auth_token']
                }
