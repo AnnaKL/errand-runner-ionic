@@ -119,3 +119,40 @@ a:hover, a:visited, a:link, a:active{
     font-size: 40px
 }
 
+#profile-title {
+  margin: auto;
+
+}
+
+#task-list {
+
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    height: 150%;
+    position: relative;
+    border: 20px solid white;
+    display: block;
+    padding: 3em 3em 3em 2em;
+    *padding: .4em;
+    background: #B0E0E6;
+    color: #B0E0E6;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out; 
+}
+
+#delete-task {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 50%;
+    padding: 1.3%;
+    background: #4682B4;
+    border-bottom: 1px solid #4682B4;    
+    color: #fff;
+    font-size: 25px
+}
+
+
+
