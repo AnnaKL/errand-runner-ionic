@@ -35,7 +35,7 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state) {
     }
 })
 
-appCtrl.controller('ChatsCtrl', function($scope, Chats) {
+appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -43,10 +43,28 @@ appCtrl.controller('ChatsCtrl', function($scope, Chats) {
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+$scope.chats = []
+$scope.getMessages = function(box){
+  $http.get('https://evening-plains-3275.herokuapp.com/users/' + window.localStorage['user_id'] + '/' + box, {
+    headers: {
+               'Authorization': window.localStorage['auth_token']
+             }
+             }).
+  success(function(data, status, headers, config) {
+    data.users.map(function(obj){
+      $scope.chats.push(obj)
+    })
+    console.log($scope.chats)
+    console.log('messages received')
+  }).
+  error(function(data, status, headers, config) {
+    console.log('chats fail')
+  })
+}
+ionic.Platform.ready(function() {
+  $scope.getMessages('conversations')
+});
 
-
-
-  $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);
   }

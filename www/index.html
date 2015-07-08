@@ -29,6 +29,7 @@
 
 <body ng-app="starter">
      <script>
+       startPusher = function() {
         // Enable pusher logging - don't include this in production
         Pusher.log = function(message) {
             if (window.console && window.console.log) {
@@ -42,10 +43,10 @@
             encrypted: true
         });
         var channel = pusher.subscribe(email + user);
-        console.log(channel)
         channel.bind('my_event', function(data) {
             alert(data.message.body);
         });
+      }
         </script>
     <ion-nav-bar class="bar-stable">
         <ion-nav-back-button>
