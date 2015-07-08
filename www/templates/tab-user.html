@@ -1,13 +1,9 @@
 <ion-view view-title="Profile">
   <ion-content>
+  <h3>Your tasks are: </h3>
     <ion-list>
           <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in allTasks" type="item-text-wrap">
-        <h2>Title: {{item.title}}</h2>  <p>Description: {{item.description}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
+        <h2>Task title: {{item.title}}</h2>  <p>Task description: {{item.description}}</p> <button class="button-assertive" ng-click="removeTask(item.id)"> Delete</button>
       </ion-item>
     </ion-list>
   </ion-content>
