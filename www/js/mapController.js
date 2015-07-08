@@ -91,7 +91,7 @@ $scope.tasks = []
      marker.id = info.id;
     marker.accept = '<a  href="#/tab/task/' + info.id +' ">Show more information</a>'
     google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content + marker.accept + marker.id);
+      infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content + marker.accept);
       infoWindow.open($scope.map, marker);
     });
     $scope.markers.push(marker);

@@ -92,7 +92,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
         var marker2 = new google.maps.Marker({
           position: new google.maps.LatLng(info.drop_off_lat, info.drop_off_lon),
           map: $scope.map,
-          icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/pink.png',
+          icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/blue.png',
           animation: google.maps.Animation.DROP,
           title: info.title,
           delivery: info.drop_off_address
