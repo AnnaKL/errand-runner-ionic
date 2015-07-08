@@ -123,16 +123,4 @@ google.maps.event.addDomListener(window, 'load', $scope.initialize);
 
 });
 
-  function Accept(){
-      console.log("Task has been accepted");
-        //   for (var i = 0; i < markers.length; i++) {
-        //     if (markers[i].id == id) {
-        //         //Remove the marker from Map
-        //         markers[i].setMap(null);
 
-        //         //Remove the marker from array.
-        //         markers.splice(i, 1);
-        //         return;
-        //     }
-        // }
-    };

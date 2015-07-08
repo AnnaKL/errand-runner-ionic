@@ -35,14 +35,16 @@
                 window.console.log(message);
             }
         };
-        // key for rocco's pusher
+        var email = window.localStorage['channel']
+        var user = window.localStorage['user_id']
 
-        var pusher = new Pusher('fb9cc9bfdf72748ab450', {
+        var pusher = new Pusher('bbab35170df6bb405f18', {
             encrypted: true
         });
-        var channel = pusher.subscribe('test_channel');
+        var channel = pusher.subscribe(email + user);
+        console.log(channel)
         channel.bind('my_event', function(data) {
-            alert(data.message);
+            alert(data.message.body);
         });
         </script>
     <ion-nav-bar class="bar-stable">

@@ -103,7 +103,7 @@ $scope.taskData = {}
         types: ['geocode']
       })
      google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      // fillInAddress();
+
     })
   })
 
