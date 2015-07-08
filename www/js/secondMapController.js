@@ -139,7 +139,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
             directionsDisplay.setMap($scope.map);
             $scope.directions.showList = true;
           } else {
-            alert('Google route unsuccesfull!');
+            alert('Delivery address has not been provided.');
           }
         });
       }
