@@ -1,4 +1,5 @@
 appCtrl.controller('AccountCtrl', function($scope, $http) {
+  $scope.$on('$ionicView.enter', function() {
 
 var placeSearch, autocomplete;
 var componentForm = {
@@ -7,7 +8,8 @@ var componentForm = {
   locality: 'long_name',
   postal_code: 'short_name'
 };
-
+$scope.place = null;
+$scope.place2 = null;
 
 $scope.taskData = {}
 
@@ -141,4 +143,5 @@ $scope.taskData = {}
       }
     }
   }
+})
 })

@@ -3,6 +3,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
   $scope.tasks = []
 
   ionic.Platform.ready(function() {
+    $scope.$on('$ionicView.enter', function() {
 
 
 
@@ -158,5 +159,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
 
 
     reload = function() {window.location.reload(true)};
+
+    });
 
   });

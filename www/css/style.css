@@ -1,3 +1,8 @@
+#allTabs {
+  background-color: #A9A9A9;
+
+}
+
 #map {
   width: 100%;
   height: 100%;
@@ -24,4 +29,54 @@
   bottom: 0;
   width: 100%;
   height: 70%;
+}
+
+#task-form {
+  
+  margin: auto;
+  width: 50%;
+  height: 60%;
+}
+
+#locationField, #locationField2, #task-title, #task-descr {
+    font-size: 700px;
+    font-weight: 300;
+    margin: auto;
+     -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 80%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 5px #6495ED;
+    padding: 3%;
+    border: 1px solid #6495ED;
+   
+}
+
+#submit-task {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #6495ED;
+    border-bottom: 2px solid #6495ED;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;    
+    color: #fff;
+    font-size: 40px
+}
+a:hover, a:visited, a:link, a:active{
+  text-decoration: none;
 }

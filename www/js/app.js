@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'google.places'])
 
 var name = window.localStorage['name'] || 'you';
 console.log('Hello, ' + name);

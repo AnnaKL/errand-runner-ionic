@@ -1,6 +1,8 @@
 appCtrl = angular.module('starter.controllers', [])
 
 appCtrl.controller('DashCtrl', function($scope, $http, $state, $window, Tasks) {
+
+ 
   $scope.userData = {}
 
   if (window.localStorage['auth_token'] === undefined) {
@@ -37,6 +39,7 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state, $window, Tasks) {
   $scope.user_id = window.localStorage['user_id']
 
    ionic.Platform.ready(function() {
+    
     $scope.allTasks= []
 
        $scope.userTasks = function(){
@@ -55,6 +58,7 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state, $window, Tasks) {
 
       }
       $scope.userTasks();
+      $scope.allTasks= []
 
   })
 
@@ -66,26 +70,17 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state, $window, Tasks) {
       var url = 'https://evening-plains-3275.herokuapp.com/users/' + $scope.user_id + '/tasks/' + taskId
      
       $http.patch(url, 
-                      {"task":{"open": true}}, 
+                      {"task":{"open": false}}, 
                       {headers: {"Authorization": token}}
                         );
+      console.log(taskId)
                       }
       
-      
-
-  // {"task": {"open": false}}
-
-
-
-   // Tasks = $scope.allTasks
 
 
 
 })
 
-
-// appCtrl.controller('UserCtrl', function($scope, $http, $stateParams, $window) {
-// }
 
 appCtrl.controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
