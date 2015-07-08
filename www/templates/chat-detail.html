@@ -1,0 +1,13 @@
+<ion-view view-title="Chats">
+    <ion-content class="padding">
+        <form>
+            <label class="chat in ChatsCtrl">
+              <p>{{userChat.message}}</p>
+                <input id="message" type="message" ng-model="userChat.message" placeholder="Write your message">
+            </label>
+            <button class="button button-clear button-positive" ng-click="newMessage()">
+                Send
+            </button>
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,61 @@
+<ion-view view-title="Add Task">
+    <ion-content class="padding">
+        <br>
+        <br>
+        <form>
+            <label>Add pickup location
+                <div id="locationField">
+                    <input id="autocomplete" placeholder="Enter your address" type="text" ng-focus="geolocate()"></input>
+                </div>
+            </label>
+            <!--  <label class="item item-input">
+                <span class="input-label">Number</span>
+                <input id="street_number" type="text" ng-model="taskData.houseNumber">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Street</span>
+                <input id="route" ng-model="taskData.street" type="">
+            </label>
+              <label class="item item-input">
+                <span class="input-label">City</span>
+                <input id="locality" ng-model="taskData.city">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Postcode</span>
+                <input class="field" id="postal_code" type="text" ng-model="taskData.postcode">
+            </label> -->
+            <label>Add dropoff location
+            <div id="locationField2">
+                <input id="autocomplete2" placeholder="Enter your address" type="text" ng-focus="geolocate()"></input>
+            </div>
+        </label>
+            <!--  <label class="item item-input">
+                <span class="input-label">Number</span>
+                <input id="street_number" type="text" ng-model="taskData.houseNumber">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Street</span>
+                <input id="route" ng-model="taskData.street" type="">
+            </label>
+              <label class="item item-input">
+                <span class="input-label">City</span>
+                <input id="locality" ng-model="taskData.city">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Postcode</span>
+                <input class="field" id="postal_code" type="text" ng-model="taskData.postcode">
+            </label> -->
+            <label class="item item-input">
+                <span class="input-label">Task</span>
+                <input type="text" ng-model="taskData.title" ng-focus="pickupcodeAddress()">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Description</span>
+                <input type="text" ng-model="taskData.description" ng-focus="deliverycodeAddress()">
+            </label>
+            <button ng-click="newTask()" class="button button-stable button-block">
+                Submit
+            </button>
+        </form>
+    </ion-content>
+</ion-view>
