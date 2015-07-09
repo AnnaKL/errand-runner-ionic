@@ -1,10 +1,8 @@
-appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, $stateParams, Tasks, $window) {
+appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, $stateParams, $window) {
 
   $scope.tasks = []
 
   ionic.Platform.ready(function() {
-
-
 
     $scope.updateMap = function() {
       $http.get('https://evening-plains-3275.herokuapp.com/tasks', {
@@ -183,7 +181,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
     var email = $scope.task.user.email
     var topic = $scope.task.id
     window.localStorage['channel'] = email
-    // post request happening before pusher has connected to channel
+      // post request happening before pusher has connected to channel
     startPusher()
     var userData = {
       "user": {
@@ -211,8 +209,8 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
       })
   }
 
-reload = function() {
-window.location.reload(true)
-};
+  reload = function() {
+    window.location.reload(true)
+  };
 
 });

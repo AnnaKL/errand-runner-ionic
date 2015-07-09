@@ -35,7 +35,7 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state) {
   }
 })
 
-appCtrl.controller('ChatsCtrl', function($scope, $http) {
+appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -45,7 +45,37 @@ appCtrl.controller('ChatsCtrl', function($scope, $http) {
   //});
 
   function Message() {}
-  chats = []
+  var users = []
+
+
+  $scope.getUser = function(chats) {
+    console.log("working")
+    for (var i = 0; i < chats.length; i++) {
+      task = chats[i].title
+      user = chats[i].task[0].received_messageable_id
+      $http.get('https://evening-plains-3275.herokuapp.com/users/' + user, {
+        headers: {
+          'Authorization': window.localStorage['auth_token']
+        }
+      }).
+      success(function(data) {
+          users.push(data)
+          $scope.assignUser(chats, users)
+          console.log(chats)
+        })
+        // err(function(data) {
+        //   console.log('failure')
+        // })
+    }
+  }
+
+  $scope.assignUser = function(chats, users) {
+    for (var i = 0; i < chats.length; i++) {
+      chats[i].user = users[i]
+    }
+  }
+
+  $scope.chats = Chats.all()
   var sortMessages = function(messages) {
     var conversation = [];
     for (var i = 0; i < messages.length; i++) {
@@ -60,20 +90,21 @@ appCtrl.controller('ChatsCtrl', function($scope, $http) {
       } else {
         var convo = new Message()
         var key = eltopic
-        convo[eltopic] = conversation
-        convo.id = chats.length
+        convo.task = conversation
+        convo.id = $scope.chats.length
         convo.title = eltopic
-        chats.push(convo)
+        $scope.chats.push(convo)
         conversation = []
         conversation.push(messages[i])
       }
     }
     var endConvo = new Message()
     var endKey = eltopic
-    endConvo[endKey] = conversation
+    endConvo.task = conversation
     endConvo.title = eltopic
-    endConvo.id = chats.length
-    chats.push(endConvo)
+    endConvo.id = $scope.chats.length
+    $scope.chats.push(endConvo)
+    $scope.getUser($scope.chats)
   }
 
   var includes = function(array, element) {
@@ -96,13 +127,15 @@ appCtrl.controller('ChatsCtrl', function($scope, $http) {
       sortMessages(data.users)
       console.log($scope.chats)
       console.log('messages received')
+
     }).
     error(function(data, status, headers, config) {
       console.log('chats fail')
     })
   }
   ionic.Platform.ready(function() {
-    $scope.getMessages('conversations')
+    $scope.getMessages('inbox')
+    $scope.getMessages('outbox')
   });
 
   $scope.remove = function(chat) {
@@ -110,30 +143,56 @@ appCtrl.controller('ChatsCtrl', function($scope, $http) {
   }
 })
 
-appCtrl.controller('ChatDetailCtrl', function($scope, $stateParams, $http) {
+appCtrl.controller('ChatDetailCtrl', function($scope, $stateParams, Chats, $http) {
   $scope.chat = Chats.get($stateParams.chatId);
 
-  $scope.userChat = {}
+  $scope.findSender = function() {
+    for (var i = 0; i < $scope.chat.task.length; i++) {
+      if ($scope.chat.task[i].sent_messageable_id == window.localStorage['user_id']) {
+        $scope.chat.task[i].sender ="you"
+        console.log($scope.chat.task[i].sender)
+      } else {
+        console.log('me')
+        $scope.chat.task[i].sender = $scope.chat.user.user.username
+      }
+    }
 
-  // $scope.newMessage = function() {
-  //   // console.log($scope.userChat)
-  //   var data = JSON.stringify({
-  //     "chat": $scope.userChat
-  //   })
-  //   console.log(data)
-  //   var res = $http({
-  //     method: 'POST',
-  //     url: 'http://localhost:3000/chats',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     data: data
-  //   }).then(
-  //     function() {
-  //       console.log('posted');
-  //     },
-  //     function() {
-  //       console.log('errors');
-  //     });
-  //}
+  }
+
+  ionic.Platform.ready(function() {
+    $scope.findSender()
+  });
+
+
+
+  $scope.sendMessage = function() {
+    var messageData = {
+      "user": {
+        "to": window.localStorage['channel'],
+        "topic": $scope.chat.title,
+        "body": document.getElementById('body').value
+      }
+    }
+    console.log(messageData)
+      // post request happening before pusher has connected to channel
+      // startPusher()
+    var data = JSON.stringify(messageData)
+    console.log(data)
+    var res = $http({
+      method: 'POST',
+      url: 'https://evening-plains-3275.herokuapp.com/users/' + window.localStorage['user_id'] + '/send_message',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': window.localStorage['auth_token']
+      },
+      data: data
+    }).then(
+      function(res) {
+        console.log(':)');
+      },
+      function(err) {
+        console.log(':(')
+      })
+  }
+
 })

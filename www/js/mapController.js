@@ -1,4 +1,4 @@
-appCtrl.controller('MapCtrl', function($scope, $ionicLoading, $compile, $http, $stateParams, Tasks) {
+appCtrl.controller('MapCtrl', function($scope, $ionicLoading, $compile, $http, $stateParams) {
 
 $scope.tasks = []
 

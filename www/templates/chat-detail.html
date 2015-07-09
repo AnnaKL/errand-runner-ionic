@@ -1,7 +1,14 @@
-<ion-view view-title="Chats">
+<ion-view view-title={{chat.title}}>
     <ion-content class="padding">
-    <input type="text"></input>
-    <button>Send Message</button>
+    <ion-list>
+    <ion-item ng-repeat="message in chat.task track by $index" type="item-text wrap">
+    <p>{{message.body}}</p>
+    <p>from: {{message.sender}}
+  </ion-item>
+</ion-list>
+
+    <input id="body" type="text"></input>
+    <button ng-click="sendMessage()">Send Message</button>
 
     </ion-content>
 </ion-view>
