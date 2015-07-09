@@ -3,19 +3,9 @@ appCtrl.controller('MapCtrl', function($scope, $ionicLoading, $compile, $http, $
 $scope.tasks = []
 
 
-// $scope.task = $scope.tasks.get($stateParams.taskId)
-// console.log($scope.task)
-
-  // var coordinates = [
-  //   new google.maps.LatLng( 51.517399, -0.073590),
-  //   new google.maps.LatLng(51.518752, -0.081437)
-  // ];
-
-
-  // ionic.Platform.ready(function() {
     $scope.$on('$ionicView.enter', function() {
 
-    $scope.updateMap = function(){
+    $scope.updateMap1 = function(){
       $http.get('https://evening-plains-3275.herokuapp.com/tasks', {
       headers: {
                  'Authorization': window.localStorage['auth_token']
@@ -32,19 +22,11 @@ $scope.tasks = []
     error(function(data, status, headers, config) {
     })
     }
-$scope.$on('$ionicView.enter', function() {
-    $scope.updateMap()
-  })
+    $scope.updateMap1()
 
     navigator.geolocation.getCurrentPosition(function(pos) {
       newLocation = (new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
       map.setCenter(newLocation)
-      var myLocation = new google.maps.Marker({
-        position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-        map: map,
-        title: "My Location",
-        icon: ('https://maps.gstatic.com/mapfiles/ms2/micons/lightblue.png')
-      });
     });
 
     var myLatlng = new google.maps.LatLng(51.517399, -0.073590);
@@ -112,9 +94,7 @@ $scope.placeMarkers = function(){
 google.maps.event.addDomListener(window, 'load', $scope.initialize);
  });
 
-// reload = function() {window.location.reload(true)};
 });
 
-// });
 
 
