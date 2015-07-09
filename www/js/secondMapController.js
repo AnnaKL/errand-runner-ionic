@@ -179,7 +179,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
   accept = function() {
     console.log($scope.task.title)
     var email = $scope.task.user.email
-    var topic = $scope.task.id
+    var topic = $scope.task.title
     window.localStorage['channel'] = email
       // post request happening before pusher has connected to channel
     startPusher()
