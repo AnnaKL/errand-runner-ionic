@@ -104,7 +104,9 @@ appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
     endConvo.title = eltopic
     endConvo.id = $scope.chats.length
     $scope.chats.push(endConvo)
-    $scope.getUser($scope.chats)
+    if ($scope.chats.length > 0) {
+      $scope.getUser($scope.chats)
+    }
   }
 
   var includes = function(array, element) {
@@ -124,8 +126,10 @@ appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
       }
     }).
     success(function(data, status, headers, config) {
+      console.log(data)
+      if (data.users.length > 0) {
       sortMessages(data.users)
-      console.log($scope.chats)
+    }
       console.log('messages received')
 
     }).
@@ -149,7 +153,7 @@ appCtrl.controller('ChatDetailCtrl', function($scope, $stateParams, Chats, $http
   $scope.findSender = function() {
     for (var i = 0; i < $scope.chat.task.length; i++) {
       if ($scope.chat.task[i].sent_messageable_id == window.localStorage['user_id']) {
-        $scope.chat.task[i].sender ="you"
+        $scope.chat.task[i].sender = "you"
         console.log($scope.chat.task[i].sender)
       } else {
         console.log('me')

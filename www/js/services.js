@@ -24,5 +24,3 @@ appServices.factory('Chats', function() {
     }
   };
 });
-
-
