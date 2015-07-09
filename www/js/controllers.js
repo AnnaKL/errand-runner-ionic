@@ -31,9 +31,54 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state, $window) {
         });
 
     }
-  } else {
-    $state.go('tab.map')
-  }
+    } else {
+      $state.go('tab.map')
+
+    }
+  $scope.username = window.localStorage['username']
+  $scope.user_id = window.localStorage['user_id']
+
+   ionic.Platform.ready(function() {
+
+    $scope.allTasks= []
+
+       $scope.userTasks = function(){
+        $http.get('https://evening-plains-3275.herokuapp.com/users/' + $scope.user_id + '/tasks', {
+        headers: {
+                   'Authorization': window.localStorage['auth_token']
+                 }
+                 }).
+      success(function(data, status, headers, config) {
+        for (var i = 0; i < data.users.length; i++) {
+          $scope.allTasks.push(data.users[i])
+        }
+       }).
+      error(function(data, status, headers, config) {
+      })
+
+      }
+      $scope.userTasks();
+      $scope.allTasks= []
+
+  })
+
+
+    $scope.removeTask = function(taskIndex){
+      var token = window.localStorage['auth_token']
+      console.log(token)
+      var taskId = this.$parent.item.id
+      var url = 'https://evening-plains-3275.herokuapp.com/users/' + $scope.user_id + '/tasks/' + taskId
+
+      $http.patch(url,
+                      {"task":{"open": false}},
+                      {headers: {"Authorization": token}}
+                        );
+      console.log(taskId)
+                      }
+
+
+
+
 })
 
 appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
