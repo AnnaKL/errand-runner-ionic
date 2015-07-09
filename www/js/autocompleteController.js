@@ -1,4 +1,4 @@
-appCtrl.controller('AccountCtrl', function($scope, $http) {
+appCtrl.controller('AccountCtrl', function($scope, $http, $ionicPopup, $state) {
   $scope.$on('$ionicView.enter', function() {
 
 var placeSearch, autocomplete;
@@ -7,6 +7,26 @@ var componentForm = {
   route: 'long_name',
   locality: 'long_name',
   postal_code: 'short_name'
+};
+
+$scope.showAlert = function() {
+  var alertPopup = $ionicPopup.alert({
+    title: 'Task added!',
+    template: "You'll get a message if anyone accepts your task"
+  });
+  alertPopup.then(function(res){
+    console.log("try again")
+  })
+};
+
+$scope.showError = function() {
+  var alertPopup = $ionicPopup.alert({
+    title: 'Something went wrong',
+    template: "Please check the details entered"
+  });
+  alertPopup.then(function(res){
+    console.log("try again")
+  })
 };
 
 
@@ -82,8 +102,11 @@ $scope.taskData = {}
     }).then(
       function(res) {
         console.log(res);
+        $scope.showAlert()
+        $state.go('tab.map')
       },
       function() {
+        $scope.showError()
         console.log(res);
       });
   }

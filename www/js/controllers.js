@@ -1,7 +1,26 @@
 appCtrl = angular.module('starter.controllers', [])
 
-appCtrl.controller('DashCtrl', function($scope, $http, $state, $window) {
+appCtrl.controller('DashCtrl', function($scope, $http, $state, $ionicPopup) {
 
+$scope.showAlert = function() {
+  var alertPopup = $ionicPopup.alert({
+    title: 'Something went wrong',
+    template: 'Username or email is already signed up - please try again'
+  });
+  alertPopup.then(function(res){
+    console.log("try again")
+  })
+};
+
+$scope.taskCompleted = function() {
+  var alertPopup = $ionicPopup.alert({
+    title: 'Task completed!',
+    template: ''
+  });
+  alertPopup.then(function(res){
+    console.log("try again")
+  })
+};
 
   $scope.userData = {}
 
@@ -27,7 +46,8 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state, $window) {
           $state.go('tab.map')
         },
         function(err) {
-          alert(err);
+          $scope.showAlert()
+          console.log(err);
         });
 
     }
@@ -64,6 +84,7 @@ appCtrl.controller('DashCtrl', function($scope, $http, $state, $window) {
 
 
     $scope.removeTask = function(taskIndex){
+      $scope.taskCompleted()
       var token = window.localStorage['auth_token']
       console.log(token)
       var taskId = this.$parent.item.id
