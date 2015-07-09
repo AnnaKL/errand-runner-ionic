@@ -11,8 +11,8 @@ var componentForm = {
 
 $scope.showAlert = function() {
   var alertPopup = $ionicPopup.alert({
-    title: 'Task added!',
-    template: "You'll get a message if anyone accepts your task"
+    title: 'task added',
+    template: "you'll get a message when someone accepts your task"
   });
   alertPopup.then(function(res){
     console.log("try again")
@@ -70,7 +70,7 @@ $scope.taskData = {}
         console.log($scope.taskData)
 
       } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+        $scope;
       }
     });
   };
@@ -90,7 +90,7 @@ $scope.taskData = {}
         console.log($scope.taskData)
 
       } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+        $scope.geocodeError()
       }
     });
   };

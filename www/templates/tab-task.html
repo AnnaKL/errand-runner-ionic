@@ -4,14 +4,13 @@
 
      <h2>{{task.title}}</h2>
         <p>{{task.description}}</p>
-         <button onclick="accept()">Accept task</button>
-         <button onclick="reload()">Show the map</button>
+         <button on-touch="accept()">Accept task</button>
          </ion-content>
          <div id="second-map">
       <ion-content class="padding" ng-load="initialize()">
       <div id="map2" show="map" data-tap-disabled="true" style="height:100%; width:100%;"></div>
       <ion-footer-bar class="bar-dark">
-      
+
     </ion-footer-bar>
         </ion-content>
         </div>
