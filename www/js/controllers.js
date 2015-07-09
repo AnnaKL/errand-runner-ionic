@@ -86,7 +86,6 @@ $scope.taskCompleted = function() {
     $scope.removeTask = function(taskIndex){
       $scope.taskCompleted()
       var token = window.localStorage['auth_token']
-      console.log(token)
       var taskId = this.$parent.item.id
       var url = 'https://evening-plains-3275.herokuapp.com/users/' + $scope.user_id + '/tasks/' + taskId
 

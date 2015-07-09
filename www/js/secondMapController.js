@@ -1,9 +1,11 @@
-appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, $stateParams, $window) {
+appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, $stateParams) {
 
   $scope.tasks = []
 
   ionic.Platform.ready(function() {
     $scope.$on('$ionicView.enter', function() {
+
+    console.log($stateParams.taskId)
 
       $scope.updateMap = function() {
         $http.get('https://evening-plains-3275.herokuapp.com/tasks', {

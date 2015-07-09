@@ -12,8 +12,8 @@ $scope.tasks = []
   // ];
 
 
-  // ionic.Platform.ready(function() {
-    $scope.$on('$ionicView.enter', function() {
+  ionic.Platform.ready(function() {
+    // $scope.$on('$ionicView.enter', function() {
 
     $scope.updateMap = function(){
       $http.get('https://evening-plains-3275.herokuapp.com/tasks', {

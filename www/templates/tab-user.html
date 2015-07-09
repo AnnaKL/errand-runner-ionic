@@ -2,7 +2,7 @@
   <ion-content>
     <ion-list id="profile-title">
           <ion-item id="task-list" ng-repeat="item in allTasks" type="item-text-wrap">
-        <h1>Task title: {{item.title}}</h1>  <h2>Description:<h2> <h2>{{item.description}}</h2><br><br>
+        <h3>Task title: {{item.title}}</h3>  <h4>Description:<h4> <h4>{{item.description}}</h4><br><br>
          <button id="delete-task" class="button-assertive" ng-click="removeTask(item.id)"> Delete</button>
       </ion-item>
     </ion-list>
