@@ -8,6 +8,9 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="//js.pusher.com/3.0/pusher.min.js"></script>
+   <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -25,6 +28,26 @@
 </head>
 
 <body ng-app="starter">
+     <script>
+       startPusher = function() {
+        // Enable pusher logging - don't include this in production
+        Pusher.log = function(message) {
+            if (window.console && window.console.log) {
+                window.console.log(message);
+            }
+        };
+        var email = window.localStorage['channel']
+        var user = window.localStorage['user_id']
+
+        var pusher = new Pusher('bbab35170df6bb405f18', {
+            encrypted: true
+        });
+        var channel = pusher.subscribe(email + user);
+        channel.bind('my_event', function(data) {
+            alert("message");
+        });
+      }
+        </script>
     <ion-nav-bar class="bar-stable">
         <ion-nav-back-button>
         </ion-nav-back-button>

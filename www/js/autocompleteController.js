@@ -1,4 +1,5 @@
 appCtrl.controller('AccountCtrl', function($scope, $http) {
+  $scope.$on('$ionicView.enter', function() {
 
 var placeSearch, autocomplete;
 var componentForm = {
@@ -103,7 +104,7 @@ $scope.taskData = {}
         types: ['geocode']
       })
      google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      // fillInAddress();
+
     })
   })
 
@@ -141,4 +142,5 @@ $scope.taskData = {}
       }
     }
   }
+})
 })
