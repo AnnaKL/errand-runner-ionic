@@ -29,6 +29,16 @@ $scope.showError = function() {
   })
 };
 
+$scope.geocodeError = function() {
+  var alertPopup = $ionicPopup.alert({
+    title: 'address lookup failed',
+    template: "please make sure all the details are correct"
+  });
+  alertPopup.then(function(res){
+    console.log("try again")
+  })
+};
+
 
 $scope.taskData = {}
 
