@@ -29,16 +29,10 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
       }
 
 
-      navigator.geolocation.getCurrentPosition(function(pos) {
-        newLocation = (new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        map.setCenter(newLocation)
-        var myLocation = new google.maps.Marker({
-          position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-          map: map,
-          title: "My Location",
-          icon: ('https://maps.gstatic.com/mapfiles/ms2/micons/lightblue.png')
-        });
-      });
+      // navigator.geolocation.getCurrentPosition(function(pos) {
+      //   newLocation = (new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      //   map.setCenter(newLocation)
+      // });
 
       var myLatlng = new google.maps.LatLng(51.517399, -0.073590);
 
@@ -123,7 +117,6 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
       }
 
       $scope.placeMarkers = function() {
-        // for (i = 0; i < $scope.tasks.length; i++) {
         $scope.pickupMarker($scope.task);
         $scope.deliveryMarker($scope.task);
         $scope.directions = {
