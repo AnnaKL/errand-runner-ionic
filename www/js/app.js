@@ -29,6 +29,8 @@ app.run(function($ionicPlatform) {
 
 .config(function($stateProvider, $urlRouterProvider) {
 
+
+
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -107,6 +109,17 @@ app.run(function($ionicPlatform) {
       }
     }
   })
+    .state('tab.user', {
+    url: '/user/:user_id',
+    views: {
+      'tab-user': {
+        templateUrl: 'templates/tab-user.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
+
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/#/tab/map');

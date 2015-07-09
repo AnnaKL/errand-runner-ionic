@@ -1,0 +1,25 @@
+<ion-view view-title="errand runner">
+    <ion-content class="padding">
+        <form>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Email</span>
+                <input id="email" type="email" ng-model="userData.email" placeholder="Email">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Username</span>
+                <input id="username" type="text" placeholder="Username" ng-model="userData.username">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="userData.password" placeholder="Password">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Confirm Password</span>
+                <input type="password" ng-model="userData.password_confirmation" placeholder="Confirm Password">
+            </label>
+            <button class="button button-clear button-positive" ng-click="newUser()">
+                log in
+            </button>
+        </form>
+    </ion-content>
+</ion-view>

@@ -3,6 +3,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
   $scope.tasks = []
 
   ionic.Platform.ready(function() {
+    $scope.$on('$ionicView.enter', function() {
 
     $scope.updateMap = function() {
       $http.get('https://evening-plains-3275.herokuapp.com/tasks', {
@@ -54,10 +55,28 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
         return;
       }
 
+<<<<<<< HEAD
       $scope.loading = $ionicLoading.show({
         content: 'Getting current location...',
         showBackdrop: false
       });
+=======
+      $scope.deliveryMarker = function(info) {
+        var marker2 = new google.maps.Marker({
+          position: new google.maps.LatLng(info.drop_off_lat, info.drop_off_lon),
+          map: $scope.map,
+          icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/blue.png',
+          animation: google.maps.Animation.DROP,
+          title: info.title,
+          delivery: info.drop_off_address
+        });
+        google.maps.event.addListener(marker2, 'click', function() {
+          infoWindow.setContent('<h2>' + marker2.title + '</h2><br>' + marker2.delivery);
+          infoWindow.open($scope.map, marker2);
+        });
+        $scope.markers.push(marker2);
+      }
+>>>>>>> 105f6e016e597b4ccf52de8b1a936cbc82e54769
 
       navigator.geolocation.getCurrentPosition(function(pos) {
         $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
@@ -124,7 +143,29 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
     var geocoder = new google.maps.Geocoder();
 
 
+<<<<<<< HEAD
     // directions object -- with defaults
+=======
+      // get directions using google maps api
+      $scope.getDirections = function () {
+        var request = {
+          origin: $scope.directions.origin,
+          destination: $scope.directions.destination,
+          travelMode: google.maps.DirectionsTravelMode.WALKING
+        };
+        directionsService.route(request, function (response, status) {
+          if (status === google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+            directionsDisplay.setMap($scope.map);
+            $scope.directions.showList = true;
+          } else {
+            alert('Delivery address has not been provided.');
+          }
+        });
+      }
+
+      $scope.updateMap();
+>>>>>>> 105f6e016e597b4ccf52de8b1a936cbc82e54769
 
 
     // get directions using google maps api
@@ -152,7 +193,15 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
 
     });
 
+<<<<<<< HEAD
     google.maps.event.addDomListener(window, 'load', $scope.initialize);
+=======
+
+    reload = function() {window.location.reload(true)};
+
+    });
+
+>>>>>>> 105f6e016e597b4ccf52de8b1a936cbc82e54769
   });
 
   // accept = function() {
