@@ -28,12 +28,6 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
         error(function(data, status, headers, config) {})
       }
 
-
-      // navigator.geolocation.getCurrentPosition(function(pos) {
-      //   newLocation = (new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-      //   map.setCenter(newLocation)
-      // });
-
       var myLatlng = new google.maps.LatLng(51.517399, -0.073590);
 
       var mapOptions = {
@@ -94,7 +88,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
           pickup: info.pick_up_address
         });
         google.maps.event.addListener(marker, 'click', function() {
-          infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.pickup);
+          infoWindow.setContent('<h2>Pick up address</h2>' + '<h4>' + marker.pickup + '</h4>');
           infoWindow.open($scope.map, marker);
         });
         $scope.markers.push(marker);
@@ -110,7 +104,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
           delivery: info.drop_off_address
         });
         google.maps.event.addListener(marker2, 'click', function() {
-          infoWindow.setContent('<h2>' + marker2.title + '</h2><br>' + marker2.delivery);
+          infoWindow.setContent('<h2>Delivery address:</h2><br>' + '<h4>' + marker2.delivery + '</h4>');
           infoWindow.open($scope.map, marker2);
         });
         $scope.markers.push(marker2);

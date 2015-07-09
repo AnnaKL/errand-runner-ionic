@@ -153,5 +153,7 @@ a:hover, a:visited, a:link, a:active{
     color: #fff;
     font-size: 25px
 }
-
+.task-style {
+    background-color: #B0E0E6;
+}
 
