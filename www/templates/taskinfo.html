@@ -1,16 +1,19 @@
 <ion-view view-title="errand runner">
     <ion-content class="padding">
+    <br>
+    <br>
         <form id="task-form">
+            <h4>please enter a title and decription for your task.  in your description, write when you would like your task completed</h4><br>
             <label id="task-title" class="item item-input item-floating-label">
-                <span class="input-label">Task</span>
-                <input type="text" ng-model="taskData.title" ng-focus="pickupcodeAddress()" placeholder="Task"></input>
+                <span class="input-label">task title</span>
+                <input type="text" ng-model="taskData.title"  placeholder="task title"></input>
             </label>
             <label id="task-descr" class="item item-input item-floating-label">
-                <span class="input-label">Description</span>
-                <input type="text" ng-model="taskData.description" ng-focus="deliverycodeAddress()" placeholder="Description"></input>
+                <span class="input-label">task description</span>
+                <input type="text" ng-model="taskData.description" placeholder="task description"></input>
             </label>
             <a href="#/tab/account">
-            <button id="submit-task" class="button button-stable button-block">done</button></a>
+            <button id="submit-task" class="button button-stable button-block" ng-click="savetaskDeets()">done</button></a>
         </form>
     </ion-content>
 </ion-view>

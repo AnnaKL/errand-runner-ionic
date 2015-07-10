@@ -2790,7 +2790,7 @@ cite {
   text-align: center; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: #000;
+  color: #5B8899;
   font-weight: 500;
   font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   line-height: 1.2; }
@@ -2808,7 +2808,9 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px; }
 
 h1, .h1 {
   font-size: 36px; }
@@ -4644,7 +4646,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
  * --------------------------------------------------
  */
 .item {
-  border-color: #ddd;
+  border-color: #AAC7BE;
   background-color: #fff;
   color: #fff;
   position: relative;
@@ -6614,11 +6616,11 @@ progress {
         box-shadow: none;
         color: #fff; }
   .button.button-stable {
-    border-color: #b2b2b2;
-    background-color: #f8f8f8;
-    color: #444; }
+    border-color: #5B8899;
+    background-color: #5B8899;
+    color: #fff; }
     .button.button-stable:hover {
-      color: #444;
+      font-weight: bold;
       text-decoration: none; }
     .button.button-stable.active, .button.button-stable.activated {
       border-color: #a2a2a2;
@@ -6648,8 +6650,8 @@ progress {
       color: #fff;
       text-decoration: none; }
     .button.button-positive.active, .button.button-positive.activated {
-      border-color: #0c63ee;
-      background-color: #0c63ee;
+      border-color: #5B8899;
+      background-color: #5B8899;
       box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); }
     .button.button-positive.button-clear {
       border-color: transparent;

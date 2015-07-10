@@ -2,10 +2,17 @@ appCtrl = angular.module('starter.controllers', [])
 
 appCtrl.controller('DashCtrl', function($scope, $http, $state, $ionicPopup) {
 
+   $scope.doRefresh = function() {
+    $scope.updateMap1()
+    $scope.$broadcast('scroll.refreshComplete');
+    console.log("refresh")
+    $scope.$apply()
+  };
+
 $scope.showAlert = function() {
   var alertPopup = $ionicPopup.alert({
-    title: 'Something went wrong',
-    template: 'Username or email is already signed up - please try again'
+    title: 'something went wrong',
+    template: 'username or email is already signed up - please try again'
   });
   alertPopup.then(function(res){
     console.log("try again")
@@ -14,7 +21,7 @@ $scope.showAlert = function() {
 
 $scope.taskCompleted = function() {
   var alertPopup = $ionicPopup.alert({
-    title: 'Task completed!',
+    title: 'task completed!',
     template: ''
   });
   alertPopup.then(function(res){
@@ -102,6 +109,13 @@ $scope.taskCompleted = function() {
 })
 
 appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
+
+   $scope.doRefresh = function() {
+    $scope.updateMap1()
+    $scope.$broadcast('scroll.refreshComplete');
+    console.log("refresh")
+    $scope.$apply()
+  };
 
   $scope.username = window.localStorage['username']
   $scope.user_id = window.localStorage['user_id']

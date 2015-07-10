@@ -3,20 +3,20 @@
     <br>
     <br>
         <form id="task-form">
-            <h4>where does your task begin?</h4><br>
+            <h4>where does your task end?</h4><br>
             <label id="locationField" class="item item-input item-floating-label">
                 <span class="input-label">house number</span>
-                <input id="housenumber" placeholder="house number" type="text"></input>
+                <input id="2housenumber" placeholder="house number" type="text"></input>
             </label>
             <label id="locationField" class="item item-input item-floating-label">
                 <span class="input-label">street name</span>
-                <input id="streetname" placeholder="street name" type="text" ng-focus="geolocate()"></input>
+                <input id="2streetname" placeholder="street name" type="text" ng-focus="geolocate()"></input>
             </label>
              <label id="locationField" class="item item-input item-floating-label">
                 <span class="input-label">postcode</span>
-                <input id="postcode" placeholder="postcode" type="text"></input>
+                <input id="2postcode" placeholder="postcode" type="text"></input>
             </label>
-            <button id="submit-task" ng-click="pickupcodeAddress()" class="button button-stable button-block">
+            <button id="submit-task" ng-click="deliverycodeAddress()" class="button button-stable button-block">
                 done
             </button>
         </form>

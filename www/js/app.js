@@ -67,17 +67,17 @@ app.run(function($ionicPlatform) {
       controller: 'AccountCtrl'
   })
 
-  // .state('taskinfo', {
-  //     url: '/pickup',
-  //     templateUrl: 'templates/pickupform.html',
-  //     controller: 'AccountCtrl'
-  // })
+  .state('taskpickup', {
+      url: '/pickup',
+      templateUrl: 'templates/pickupform.html',
+      controller: 'AccountCtrl'
+  })
 
-  // .state('taskinfo', {
-  //     url: '/dropoff',
-  //     templateUrl: 'templates/dropoff.html',
-  //     controller: 'AccountCtrl'
-  // })
+  .state('taskdropoff', {
+      url: '/dropoff',
+      templateUrl: 'templates/dropoff.html',
+      controller: 'AccountCtrl'
+  })
 
 .state('tab.chats', {
   url: '/chats',

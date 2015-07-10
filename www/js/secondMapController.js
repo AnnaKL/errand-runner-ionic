@@ -1,7 +1,16 @@
-appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, $stateParams) {
+appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, $stateParams, $ionicPopup) {
 
   $scope.tasks = []
 
+$scope.taskAccepted = function() {
+  var alertPopup = $ionicPopup.alert({
+    title: 'task accepted',
+    template: 'the owner of this task has been notified'
+  });
+  alertPopup.then(function(res){
+    console.log("try again")
+  })
+};
   ionic.Platform.ready(function() {
     $scope.$on('$ionicView.enter', function() {
 
@@ -50,21 +59,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
           content: 'Getting current location...',
           showBackdrop: false
         });
-        $scope.deliveryMarker = function(info) {
-          var marker2 = new google.maps.Marker({
-            position: new google.maps.LatLng(info.drop_off_lat, info.drop_off_lon),
-            map: $scope.map,
-            icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/blue.png',
-            animation: google.maps.Animation.DROP,
-            title: info.title,
-            delivery: info.drop_off_address
-          });
-          google.maps.event.addListener(marker2, 'click', function() {
-            infoWindow.setContent('<h2>' + marker2.title + '</h2><br>' + marker2.delivery);
-            infoWindow.open($scope.map, marker2);
-          });
-          $scope.markers.push(marker2);
-        }
+
 
         navigator.geolocation.getCurrentPosition(function(pos) {
           $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
@@ -88,7 +83,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
           pickup: info.pick_up_address
         });
         google.maps.event.addListener(marker, 'click', function() {
-          infoWindow.setContent('<h2>Pick up address</h2>' + '<h4>' + marker.pickup + '</h4>');
+          infoWindow.setContent('<h2>pick up address</h2>' + '<h4>' + marker.pickup + '</h4>');
           infoWindow.open($scope.map, marker);
         });
         $scope.markers.push(marker);
@@ -98,7 +93,7 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
         var marker2 = new google.maps.Marker({
           position: new google.maps.LatLng(info.drop_off_lat, info.drop_off_lon),
           map: $scope.map,
-          icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/pink.png',
+          icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/blue.png',
           animation: google.maps.Animation.DROP,
           title: info.title,
           delivery: info.drop_off_address
@@ -171,42 +166,10 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
         });
       }
 
-
-
-      $scope.$on("$ionicView.enter", function(scopes, states) {
-
-      });
-
       google.maps.event.addDomListener(window, 'load', $scope.initialize);
-
-
-      reload = function() {
-        window.location.reload(true)
-      };
 
     });
   });
-
-  // accept = function() {
-  //   var update = JSON.stringify({task: {"open": false}})
-  //   console.log(update)
-  //   console.log($stateParams.taskId)
-  //   var res = $http({
-  //     method: 'PATCH',
-  //     url: 'https://evening-plains-3275.herokuapp.com/users/' + window.localStorage['user_id'] + '/tasks/' + $stateParams.taskId,
-  //     headers: {
-  //       'Authorization': window.localStorage['auth_token']
-  //     },
-  //     data: update
-  //   }).then(
-  //   function(res){
-  //     console.log(res);
-  //   },
-  //   function(err) {
-  //     console.log(err)
-  //   })
-
-  // };
 
   accept = function() {
     console.log($scope.task.title)
@@ -240,9 +203,5 @@ appCtrl.controller('Map2Ctrl', function($scope, $ionicLoading, $compile, $http, 
         console.log(':(')
       })
   }
-
-  reload = function() {
-    window.location.reload(true)
-  };
 
 });
