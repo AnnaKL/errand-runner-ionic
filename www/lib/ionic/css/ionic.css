@@ -2559,7 +2559,7 @@ body, .ionic-body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  color: #000;
+  color: #5B8899;
   word-wrap: break-word;
   font-size: 14px;
   font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
@@ -3042,10 +3042,9 @@ a.subdued {
   padding: 5px;
   width: 100%;
   height: 44px;
-  border-width: 0;
-  border-style: solid;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid #ddd;
+ /* border-style: solid;*/
+  border-top: 0px solid transparent;
+  border-bottom: 0px solid transparent;
   background-color: white;
   /* border-width: 1px will actually create 2 device pixels on retina */
   /* this nifty trick sets an actual 1px border on hi-res displays */
@@ -3145,8 +3144,8 @@ a.subdued {
     .bar.bar-royal.bar-footer {
       background-image: linear-gradient(180deg, #6b46e5, #6b46e5 50%, transparent 50%); }
   .bar.bar-dark {
-    border-color: #111;
-    background-color: #444444;
+    border-color: #5B8899;
+    background-color: #5B8899;
     background-image: linear-gradient(0deg, #111, #111 50%, transparent 50%);
     color: #fff; }
     .bar.bar-dark .title {
@@ -3166,7 +3165,7 @@ a.subdued {
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 44px; }
     .bar .title.title-left {
@@ -3600,7 +3599,7 @@ a.subdued {
 
 .tabs-dark > .tabs, .tabs.tabs-dark {
   border-color: #111;
-  background-color: #444;
+  background-color: #5B8899;
   background-image: linear-gradient(0deg, #111, #111 50%, transparent 50%);
   color: #fff; }
   .tabs-dark > .tabs .tab-item .badge, .tabs.tabs-dark .tab-item .badge {
@@ -4647,7 +4646,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 .item {
   border-color: #ddd;
   background-color: #fff;
-  color: #444;
+  color: #fff;
   position: relative;
   z-index: 2;
   display: block;
@@ -5771,11 +5770,11 @@ input, button, select, textarea {
   padding: 7px 10px 7px 0px;
   max-width: 200px;
   width: 35%;
-  color: #444;
+  color: #fff;
   font-size: 16px; }
 
 .placeholder-icon {
-  color: #aaa; }
+  color: #5B8899; }
   .placeholder-icon:first-child {
     padding-right: 6px; }
   .placeholder-icon:last-child {
@@ -5823,7 +5822,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   padding-top: 2px;
   padding-left: 0;
   height: 34px;
-  color: #111;
+  color: #fff;
   vertical-align: middle;
   font-size: 14px;
   line-height: 16px; }
@@ -5837,11 +5836,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 textarea {
   padding-left: 0; }
   textarea::-moz-placeholder {
-    color: #aaaaaa; }
+    color: #5B8899; }
   textarea:-ms-input-placeholder {
-    color: #aaaaaa; }
+    color: #5B8899; }
   textarea::-webkit-input-placeholder {
-    color: #aaaaaa;
+    color: #5B8899;
     text-indent: -3px; }
 
 textarea {
@@ -5866,11 +5865,11 @@ input[type="file"] {
   width: 200px; }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
-  color: #aaaaaa; }
+  color: #5B8899; }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  color: #aaaaaa; }
+  color: #5B8899; }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #aaaaaa;
+  color: #5B8899;
   text-indent: 0; }
 
 input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {
@@ -7369,7 +7368,7 @@ a.button {
  * --------------------------------------------------
  */
 .padding {
-  padding: 10px; }
+  padding: 0px; }
 
 .padding-top, .padding-vertical {
   padding-top: 10px; }

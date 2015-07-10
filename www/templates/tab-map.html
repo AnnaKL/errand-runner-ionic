@@ -1,8 +1,10 @@
-<ion-view view-title="Map">
+<ion-view view-title="errand runner">
   <ion-content class="padding" onload="initialize">
-    <!-- <ion-header-bar class="bar-dark" >
-      <h1 class="title">Map</h1>
-    </ion-header-bar> -->
+  <ion-header-bar class="bar-dark" >
+      <h3 class="title">map</h3>
+    </ion-header-bar>
+    <ion-refresher pulling-text="pull to refresh" on-refresh="doRefresh()">
+    </ion-refresher>
       <div id="map" data-tap-disabled="true"></div>
     <ion-footer-bar class="bar-dark">
       <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate"></a>

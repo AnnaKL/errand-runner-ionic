@@ -1,0 +1,16 @@
+<ion-view view-title="errand runner">
+    <ion-content class="padding">
+        <form id="task-form">
+            <label id="task-title" class="item item-input item-floating-label">
+                <span class="input-label">Task</span>
+                <input type="text" ng-model="taskData.title" ng-focus="pickupcodeAddress()" placeholder="Task"></input>
+            </label>
+            <label id="task-descr" class="item item-input item-floating-label">
+                <span class="input-label">Description</span>
+                <input type="text" ng-model="taskData.description" ng-focus="deliverycodeAddress()" placeholder="Description"></input>
+            </label>
+            <a href="#/tab/account">
+            <button id="submit-task" class="button button-stable button-block">done</button></a>
+        </form>
+    </ion-content>
+</ion-view>

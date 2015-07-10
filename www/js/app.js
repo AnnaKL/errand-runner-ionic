@@ -37,14 +37,14 @@ app.run(function($ionicPlatform) {
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  .state('login', {
+    .state('login', {
     url: "/",
     templateUrl: "templates/login.html",
     controller: 'DashCtrl'
   })
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: "/tab",
     abstract: true,
     templateUrl: "templates/tabs.html"
@@ -61,68 +61,85 @@ app.run(function($ionicPlatform) {
   //     }
   //   }
   // })
-
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-
-  .state('tab.map', {
-    url: '/map',
-    views: {
-      'tab-map': {
-        templateUrl: 'templates/tab-map.html',
-        controller: 'MapCtrl'
-      }
-    }
+  .state('taskinfo', {
+      url: '/taskinfo',
+      templateUrl: 'templates/taskinfo.html',
+      controller: 'AccountCtrl'
   })
 
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
+  // .state('taskinfo', {
+  //     url: '/pickup',
+  //     templateUrl: 'templates/pickupform.html',
+  //     controller: 'AccountCtrl'
+  // })
+
+  // .state('taskinfo', {
+  //     url: '/dropoff',
+  //     templateUrl: 'templates/dropoff.html',
+  //     controller: 'AccountCtrl'
+  // })
+
+.state('tab.chats', {
+  url: '/chats',
+  views: {
+    'tab-chats': {
+      templateUrl: 'templates/tab-chats.html',
+      controller: 'ChatsCtrl'
     }
-  })
-  .state('tab.task', {
-    url: '/task/:taskId',
-    views: {
-      'tab-task': {
-        templateUrl: 'templates/tab-task.html',
-        controller: 'Map2Ctrl'
-      }
+  }
+})
+.state('tab.chat-detail', {
+  url: '/chats/:chatId',
+  views: {
+    'tab-chats': {
+      templateUrl: 'templates/chat-detail.html',
+      controller: 'ChatDetailCtrl'
     }
-  })
-    .state('tab.user', {
-    url: '/user/:user_id',
-    views: {
-      'tab-user': {
-        templateUrl: 'templates/tab-user.html',
-        controller: 'DashCtrl'
-      }
+  }
+})
+
+.state('tab.map', {
+  url: '/map',
+  views: {
+    'tab-map': {
+      templateUrl: 'templates/tab-map.html',
+      controller: 'MapCtrl'
     }
-  })
+  }
+})
+
+.state('tab.account', {
+  url: '/account',
+  views: {
+    'tab-account': {
+      templateUrl: 'templates/tab-account.html',
+      controller: 'AccountCtrl'
+    }
+  }
+})
+.state('tab.task', {
+  url: '/task/:taskId',
+  views: {
+    'tab-task': {
+      templateUrl: 'templates/tab-task.html',
+      controller: 'Map2Ctrl'
+    }
+  }
+})
+.state('tab.user', {
+  url: '/user/:user_id',
+  views: {
+    'tab-user': {
+      templateUrl: 'templates/tab-user.html',
+      controller: 'DashCtrl'
+    }
+  }
+})
 
 
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/#/tab/map');
+// if none of the above states are matched, use this as the fallback
+$urlRouterProvider.otherwise('/#/tab/map');
 
 
 });

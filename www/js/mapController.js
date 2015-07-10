@@ -2,6 +2,13 @@ appCtrl.controller('MapCtrl', function($scope, $ionicLoading, $compile, $http, $
 
 $scope.tasks = []
 
+ $scope.doRefresh = function() {
+    $scope.updateMap1()
+    $scope.$broadcast('scroll.refreshComplete');
+    console.log("refresh")
+    $scope.$apply()
+  };
+
 // $scope.task = $scope.tasks.get($stateParams.taskId)
 // console.log($scope.task)
 
