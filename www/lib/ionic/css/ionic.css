@@ -2559,7 +2559,7 @@ body, .ionic-body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  color: #5B8899;
+  color: #A6AAA9;
   word-wrap: break-word;
   font-size: 14px;
   font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
@@ -2790,7 +2790,7 @@ cite {
   text-align: center; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: #5B8899;
+  color: #A6AAA9;
   font-weight: 500;
   font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   line-height: 1.2; }
@@ -3146,8 +3146,8 @@ a.subdued {
     .bar.bar-royal.bar-footer {
       background-image: linear-gradient(180deg, #6b46e5, #6b46e5 50%, transparent 50%); }
   .bar.bar-dark {
-    border-color: #5B8899;
-    background-color: #5B8899;
+    border-color: #61B5FC;
+    background-color: #61B5FC;
     background-image: linear-gradient(0deg, #111, #111 50%, transparent 50%);
     color: #fff; }
     .bar.bar-dark .title {
@@ -3601,7 +3601,7 @@ a.subdued {
 
 .tabs-dark > .tabs, .tabs.tabs-dark {
   border-color: #111;
-  background-color: #5B8899;
+  background-color: #61B5FC;
   background-image: linear-gradient(0deg, #111, #111 50%, transparent 50%);
   color: #fff; }
   .tabs-dark > .tabs .tab-item .badge, .tabs.tabs-dark .tab-item .badge {
@@ -4646,9 +4646,9 @@ ion-tabs.tabs-color-active-dark .tab-item {
  * --------------------------------------------------
  */
 .item {
-  border-color: #AAC7BE;
+  border-color: #fff;
   background-color: #fff;
-  color: #fff;
+  color: #A6AAA9;
   position: relative;
   z-index: 2;
   display: block;
@@ -5772,7 +5772,7 @@ input, button, select, textarea {
   padding: 7px 10px 7px 0px;
   max-width: 200px;
   width: 35%;
-  color: #fff;
+  color: #A6AAA9;
   font-size: 16px; }
 
 .placeholder-icon {
@@ -5824,7 +5824,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   padding-top: 2px;
   padding-left: 0;
   height: 34px;
-  color: #fff;
+  color: #A6AAA9;
   vertical-align: middle;
   font-size: 14px;
   line-height: 16px; }
@@ -5838,11 +5838,11 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 textarea {
   padding-left: 0; }
   textarea::-moz-placeholder {
-    color: #5B8899; }
+    color: #A6AAA9; }
   textarea:-ms-input-placeholder {
-    color: #5B8899; }
+    color: #A6AAA9; }
   textarea::-webkit-input-placeholder {
-    color: #5B8899;
+    color: #A6AAA9;
     text-indent: -3px; }
 
 textarea {
@@ -5867,11 +5867,11 @@ input[type="file"] {
   width: 200px; }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
-  color: #5B8899; }
+  color: #A6AAA9; }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  color: #5B8899; }
+  color: #A6AAA9; }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #5B8899;
+  color: #A6AAA9;
   text-indent: 0; }
 
 input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {
@@ -6616,8 +6616,8 @@ progress {
         box-shadow: none;
         color: #fff; }
   .button.button-stable {
-    border-color: #5B8899;
-    background-color: #5B8899;
+    border-color: #61B5FC;
+    background-color: #61B5FC;
     color: #fff; }
     .button.button-stable:hover {
       font-weight: bold;

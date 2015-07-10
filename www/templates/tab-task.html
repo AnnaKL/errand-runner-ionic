@@ -1,9 +1,9 @@
 <ion-view view-title="errand runner">
     <ion-content class="padding" ng-load="initialize()">
-        <h2>title: {{task.title}}</h2>
-        <h4>descrition: {{task.description}}</h4>
+        <h3>title:  {{task.title}}</h4>
+        <h4>description: {{task.description}}</h4>
         <br>
-        <button class="button button-stable button-block" on-touch="accept()" ng-click="taskAccepted()">accept task</button>
+        <button id="accept-task" class="button button-stable button-block" on-touch="accept()" ng-click="taskAccepted()">accept task</button>
         <div id="second-map">
             <div id="map2" show="map" data-tap-disabled="true" style="height:100%; width:100%;"></div>
             <ion-footer-bar class="bar-dark">

@@ -4,7 +4,7 @@
 }
 
 .background, .background .pane, .background .item, .background .item-complex .item-content {
-    background-color: #AAC7BE;
+    background-color: #fff;
 }
 
 #map {
@@ -42,6 +42,9 @@
   height: 60%;
 }
 
+
+
+
 #locationField, #locationField2, #task-title, #task-descr {
 
     margin: auto;
@@ -54,7 +57,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     width: 100%;
-    background: #AAC7BE;
+    background: #fff;
     margin-bottom: 5%;
    /* border: 0px solid #ccc;*/
     padding: 3%;
@@ -66,19 +69,40 @@
 
 }
 
-#submit-task {
+#accept-task {
+    margin: auto;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    width: 100%;
+    width: 50%;
+    height: 7%;
     padding: 3%;
-    background: #5B8899;
-    border-bottom: 2px solid #5B8899;
+    background: #61B5FC;
+    border-bottom: 2px solid #61B5FC;
     border-top-style: none;
     border-right-style: none;
     border-left-style: none;
-    color: #fff;
-    font-size: 40px
+    color: #ff;
+    font-size: 18px
+    text-align: center;
+    line-height: 30px;
+}
+
+#submit-task {
+    margin: auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 60%;
+    padding: 3%;
+    background: #61B5FC;
+    border-bottom: 2px solid #61B5FC;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #ff;
+    font-size: 20px
+
 }
 a:hover, a:visited, a:link, a:active{
   text-decoration: none;
@@ -96,7 +120,7 @@ a:hover, a:visited, a:link, a:active{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     width: 100%;
-    background: #AAC7BE;
+    background: #fff;
     margin-bottom: 4%;
     padding: 3%;
     color: #5B8899;
@@ -113,8 +137,8 @@ a:hover, a:visited, a:link, a:active{
     -moz-box-sizing: border-box;
     width: 100%;
     padding: 3%;
-    background: #5B8899;
-    border-bottom: 2px solid #5B8899;
+    background: #61B5FC;
+    border-bottom: 2px solid #61B5FC;
     border-top-style: none;
     border-right-style: none;
     border-left-style: none;
@@ -145,7 +169,7 @@ a:hover, a:visited, a:link, a:active{
     transition: all .3s ease-out;
 }*/
 
-#delete-task {
+/*#delete-task {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -155,8 +179,8 @@ a:hover, a:visited, a:link, a:active{
     border-bottom: 1px solid #4682B4;
     color: #fff;
     font-size: 20px
-}
-.task-style {
+}*/
+/*.task-style {
     background-color: #B0E0E6;
-}
+}*/
 
