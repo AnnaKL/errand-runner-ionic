@@ -48,6 +48,7 @@ $scope.tasks = []
 
     var myLatlng = new google.maps.LatLng(51.517399, -0.073590);
 
+
     var mapOptions = {
       center: myLatlng,
       zoom: 16,
