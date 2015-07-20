@@ -1,6 +1,6 @@
 # errand_runner
 
-this repository contains the front end framework built to interact with the errand_runner API, which can be found here: https://github.com/MollieS/errand-runner
+this repository contains the front end framework built to interact with the errand_runner API, which can be found here: https://github.com/AnnaKL/errand-runner-rails-api
 
 errand_runner is a simple application to help you complete your everyday's tasks. with errand_runner you can:
 
