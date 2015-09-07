@@ -17,7 +17,7 @@ $scope.taskAccepted = function() {
     console.log($stateParams.taskId)
 
       $scope.updateMap = function() {
-        $http.get('https://evening-plains-3275.herokuapp.com/tasks', {
+        $http.get('http://errand-runner.herokuapp.com/tasks', {
           headers: {
             'Authorization': window.localStorage['auth_token']
           }
@@ -189,7 +189,7 @@ $scope.taskAccepted = function() {
     console.log(data)
     var res = $http({
       method: 'POST',
-      url: 'https://evening-plains-3275.herokuapp.com/users/' + window.localStorage['user_id'] + '/send_message',
+      url: 'http://errand-runner.herokuapp.com/users/' + window.localStorage['user_id'] + '/send_message',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': window.localStorage['auth_token']

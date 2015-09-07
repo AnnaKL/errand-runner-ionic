@@ -1,3 +1,5 @@
+![Picture 1](www/img/screenshot1.png) ![Picture 2](www/img/screenshot2.png)
+
 # errand_runner
 
 this repository contains the front end framework built to interact with the errand_runner API, which can be found here: https://github.com/AnnaKL/errand-runner-rails-api
@@ -18,7 +20,7 @@ user stories
 -----
 
 ```
-as a busy person  
+as a busy person
 so that I can outsource errands
 I would like to create a task
 
@@ -26,7 +28,7 @@ as a busy person
 so that I can find a nearby helper
 I would like to place my task on a map visible to all
 
-as a busy person  
+as a busy person
 so that I can outsource many errands
 I would like to create a list of tasks
 
@@ -46,7 +48,7 @@ as a helper
 so that I can be of service
 I would like to be able to sign up/in/out
 
-as a busy person  
+as a busy person
 So that I know the task is in hand
 I would like to be notified it has been accepted and by whom
 
@@ -65,7 +67,7 @@ technology
 installation
 -----
 
-* git clone this repository 
+* git clone this repository
 * cd into the errand-runner-mobile folder locally
 * `ionic serve` will show the app as a webpage
 * `ionic serve --lab` will show the app in the browser as it would look on a mobile device

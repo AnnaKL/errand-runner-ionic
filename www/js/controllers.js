@@ -40,7 +40,7 @@ $scope.taskCompleted = function() {
 
       var res = $http({
         method: 'POST',
-        url: 'http://evening-plains-3275.herokuapp.com/users',
+        url: 'http://errand-runner.herokuapp.com/users',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -70,7 +70,7 @@ $scope.taskCompleted = function() {
     $scope.allTasks= []
 
        $scope.userTasks = function(){
-        $http.get('https://evening-plains-3275.herokuapp.com/users/' + $scope.user_id + '/tasks', {
+        $http.get('http://errand-runner.herokuapp.com/users/' + $scope.user_id + '/tasks', {
         headers: {
                    'Authorization': window.localStorage['auth_token']
                  }
@@ -94,7 +94,7 @@ $scope.taskCompleted = function() {
       $scope.taskCompleted()
       var token = window.localStorage['auth_token']
       var taskId = this.$parent.item.id
-      var url = 'https://evening-plains-3275.herokuapp.com/users/' + $scope.user_id + '/tasks/' + taskId
+      var url = 'http://errand-runner.herokuapp.com/users/' + $scope.user_id + '/tasks/' + taskId
 
       $http.patch(url,
                       {"task":{"open": false}},
@@ -125,7 +125,7 @@ appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
     $scope.allTasks = []
 
     $scope.userTasks = function() {
-      $http.get('https://evening-plains-3275.herokuapp.com/users/' + $scope.user_id + '/tasks', {
+      $http.get('http://errand-runner.herokuapp.com/users/' + $scope.user_id + '/tasks', {
         headers: {
           'Authorization': window.localStorage['auth_token']
         }
@@ -148,7 +148,7 @@ appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
     var token = window.localStorage['auth_token']
     console.log(token)
     var taskId = this.$parent.item.id
-    var url = 'https://evening-plains-3275.herokuapp.com/users/' + $scope.user_id + '/tasks/' + taskId
+    var url = 'http://errand-runner.herokuapp.com/users/' + $scope.user_id + '/tasks/' + taskId
 
     $http.patch(url, {
       "task": {
@@ -184,7 +184,7 @@ appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
     for (var i = 0; i < chats.length; i++) {
       task = chats[i].title
       user = chats[i].task[0].received_messageable_id
-      $http.get('https://evening-plains-3275.herokuapp.com/users/' + user, {
+      $http.get('http://errand-runner.herokuapp.com/users/' + user, {
         headers: {
           'Authorization': window.localStorage['auth_token']
         }
@@ -251,7 +251,7 @@ appCtrl.controller('ChatsCtrl', function($scope, Chats, $http) {
   }
 
   $scope.getMessages = function(box) {
-    $http.get('https://evening-plains-3275.herokuapp.com/users/' + window.localStorage['user_id'] + '/' + box, {
+    $http.get('http://errand-runner.herokuapp.com/users/' + window.localStorage['user_id'] + '/' + box, {
       headers: {
         'Authorization': window.localStorage['auth_token']
       }
@@ -315,7 +315,7 @@ appCtrl.controller('ChatDetailCtrl', function($scope, $stateParams, Chats, $http
     console.log(data)
     var res = $http({
       method: 'POST',
-      url: 'https://evening-plains-3275.herokuapp.com/users/' + window.localStorage['user_id'] + '/send_message',
+      url: 'http://errand-runner.herokuapp.com/users/' + window.localStorage['user_id'] + '/send_message',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': window.localStorage['auth_token']

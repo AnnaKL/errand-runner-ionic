@@ -108,7 +108,7 @@ appCtrl.controller('AccountCtrl', function($scope, $http, $ionicPopup, $state) {
     console.log(window.localStorage['auth_token'])
     var res = $http({
       method: 'POST',
-      url: 'https://evening-plains-3275.herokuapp.com/users/' + window.localStorage['user_id'] + '/tasks',
+      url: 'http://errand-runner.herokuapp.com//users/' + window.localStorage['user_id'] + '/tasks',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': window.localStorage['auth_token']

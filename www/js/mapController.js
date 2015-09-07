@@ -23,7 +23,7 @@ $scope.tasks = []
     // $scope.$on('$ionicView.enter', function() {
 
     $scope.updateMap1 = function(){
-      $http.get('https://evening-plains-3275.herokuapp.com/tasks', {
+      $http.get('http://errand-runner.herokuapp.com/tasks', {
       headers: {
                  'Authorization': window.localStorage['auth_token']
                }
